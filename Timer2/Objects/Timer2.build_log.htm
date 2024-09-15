@@ -1,0 +1,120 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Tool Versions:</h2>
+IDE-Version: µVision V5.31.0.0
+Copyright (C) 2020 ARM Ltd and ARM Germany GmbH. All rights reserved.
+License Information: huy nguyen, abcgroup, LIC=X96CK-ZSWAS-TGR7T-RAW3X-JFC82-RVILH
+ 
+Tool Versions:
+Toolchain:       MDK-ARM Plus  Version: 5.31.0.0
+Toolchain Path:  C:\Keil_v5\ARM\ARMCLANG\Bin
+C Compiler:      ArmClang.exe V6.14
+Assembler:       Armasm.exe V6.14
+Linker/Locator:  ArmLink.exe V6.14
+Library Manager: ArmAr.exe V6.14
+Hex Converter:   FromElf.exe V6.14
+CPU DLL:         SARMCM3.DLL V5.31.0.0
+Dialog DLL:      DARMSTM.DLL V1.68.0.0
+Target DLL:      UL2CM3.DLL V1.163.4.0
+Dialog DLL:      TCM.DLL V1.46.0.0
+ 
+<h2>Project:</h2>
+D:\Appdata\KeilC\Timer2\Timer2.uvprojx
+Project File Date:  09/10/2024
+
+<h2>Output:</h2>
+*** Using Compiler 'V6.14', folder: 'C:\Keil_v5\ARM\ARMCLANG\Bin'
+Rebuild target 'Target 1'
+assembling startup_stm32f10x_ld.s...
+RTE/Device/STM32F103C6/system_stm32f10x.c(166): warning: no previous extern declaration for non-static variable 'AHBPrescTable' [-Wmissing-variable-declarations]
+__I uint8_t AHBPrescTable[16] = {0, 0, 0, 0, 0, 0, 0, 0, 1, 2, 3, 4, 6, 7, 8, 9};
+            ^
+RTE/Device/STM32F103C6/system_stm32f10x.c(166): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+__I uint8_t AHBPrescTable[16] = {0, 0, 0, 0, 0, 0, 0, 0, 1, 2, 3, 4, 6, 7, 8, 9};
+    ^
+1 warning generated.
+compiling system_stm32f10x.c...
+main.c(86): warning: no previous extern declaration for non-static variable 'counter' [-Wmissing-variable-declarations]
+volatile uint8_t counter = 0;  
+                 ^
+main.c(86): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+volatile uint8_t counter = 0;  
+         ^
+main.c(87): warning: no previous extern declaration for non-static variable 'led_index' [-Wmissing-variable-declarations]
+volatile uint8_t led_index = 0; 
+                 ^
+main.c(87): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+volatile uint8_t led_index = 0; 
+         ^
+main.c(88): warning: no previous extern declaration for non-static variable 'current_led' [-Wmissing-variable-declarations]
+uint8_t current_led = 0;
+        ^
+main.c(88): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+uint8_t current_led = 0;
+^
+main.c(89): warning: no previous extern declaration for non-static variable 'LED' [-Wmissing-variable-declarations]
+const uint16_t LED[10]={0xC0,0xF9,0xA4,0xB0,0x99,0x92,0x82,0xF8,0x80,0x90}; // Anot chung
+               ^
+main.c(89): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+const uint16_t LED[10]={0xC0,0xF9,0xA4,0xB0,0x99,0x92,0x82,0xF8,0x80,0x90}; // Anot chung
+      ^
+main.c(110): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
+        AFIO->EXTICR[0] &= ~(AFIO_EXTICR1_EXTI0);                       // Reset EXTICR register
+                        ~~ ^~~~~~~~~~~~~~~~~~~~~
+main.c(143): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
+        RCC->CR &= ~(1<<24);                                                                                    // PLLON = 0, tat PLL truoc khi cau hinh
+                ~~ ^~~~~~~~
+main.c(210): warning: result of comparison of constant 9999 with expression of type 'volatile uint8_t' (aka 'volatile unsigned char') is always false [-Wtautological-constant-out-of-range-compare]
+                if (counter > 9999)
+                    ~~~~~~~ ^ ~~~~
+main.c(222): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
+        GPIOB->BSRR &= ~(0x0F);
+                    ~~ ^~~~~~~
+main.c(225): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
+        GPIOB->ODR |= LED[digit[led_index]]<<8;  // Hien thi so l<EA>n PB8-PB14    
+                   ~~ ~~~~~~~~~~~~~~~~~~~~~^~~
+main.c(276): warning: no newline at end of file [-Wnewline-eof]
+//}
+   ^
+10 warnings generated.
+compiling main.c...
+linking...
+Program Size: Code=1148 RO-data=252 RW-data=0 ZI-data=1640  
+FromELF: creating hex file...
+".\Objects\Timer2.axf" - 0 Error(s), 11 Warning(s).
+
+<h2>Software Packages used:</h2>
+
+Package Vendor: ARM
+                https://www.keil.com/pack/ARM.CMSIS.6.1.0.pack
+                ARM.CMSIS.6.1.0
+                CMSIS (Common Microcontroller Software Interface Standard)
+   * Component: CORE Version: 6.1.0
+
+Package Vendor: Keil
+                https://www.keil.com/pack/Keil.STM32F1xx_DFP.2.4.1.pack
+                Keil.STM32F1xx_DFP.2.4.1
+                STMicroelectronics STM32F1 Series Device Support, Drivers and Examples
+   * Component: Startup Version: 1.0.0
+
+<h2>Collection of Component include folders:</h2>
+  .\RTE\Device\STM32F103C6
+  .\RTE\_Target_1
+  C:\Users\HUY\AppData\Local\Arm\Packs\ARM\CMSIS\6.1.0\CMSIS\Core\Include
+  C:\Users\HUY\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.1\Device\Include
+
+<h2>Collection of Component Files used:</h2>
+
+   * Component: ARM::CMSIS:CORE:6.1.0
+
+   * Component: Keil::Device:Startup:1.0.0
+      Source file:   Device\Source\ARM\startup_stm32f10x_ld.s
+      Source file:   Device\Source\system_stm32f10x.c
+      Include file:  RTE_Driver\Config\RTE_Device.h
+      Source file:   Device\Source\ARM\STM32F1xx_OPT.s
+Build Time Elapsed:  00:00:00
+</pre>
+</body>
+</html>
